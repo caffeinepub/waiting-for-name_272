@@ -1,0 +1,290 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay.woff2") format("woff2");
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    /* Cinematic dark palette */
+    --background: 0.08 0.005 265;
+    --foreground: 0.96 0.005 265;
+    --card: 0.11 0.008 265;
+    --card-foreground: 0.96 0.005 265;
+    --popover: 0.13 0.01 265;
+    --popover-foreground: 0.96 0.005 265;
+    --primary: 0.62 0.22 288;
+    --primary-foreground: 0.98 0 0;
+    --secondary: 0.16 0.01 265;
+    --secondary-foreground: 0.96 0.005 265;
+    --muted: 0.16 0.01 265;
+    --muted-foreground: 0.55 0.01 265;
+    --accent: 0.55 0.18 288;
+    --accent-foreground: 0.98 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.98 0 0;
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 10%;
+    --ring: 0.62 0.22 288;
+    --chart-1: 0.62 0.22 288;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.769 0.188 70.08;
+    --chart-4: 0.627 0.265 303.9;
+    --chart-5: 0.645 0.246 16.439;
+    --sidebar: 0.08 0.005 265;
+    --sidebar-foreground: 0.96 0.005 265;
+    --sidebar-primary: 0.62 0.22 288;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.16 0.01 265;
+    --sidebar-accent-foreground: 0.96 0.005 265;
+    --sidebar-border: 1 0 0 / 8%;
+    --sidebar-ring: 0.62 0.22 288;
+  }
+
+  .dark {
+    --background: 0.08 0.005 265;
+    --foreground: 0.96 0.005 265;
+    --card: 0.11 0.008 265;
+    --card-foreground: 0.96 0.005 265;
+    --popover: 0.13 0.01 265;
+    --popover-foreground: 0.96 0.005 265;
+    --primary: 0.62 0.22 288;
+    --primary-foreground: 0.98 0 0;
+    --secondary: 0.16 0.01 265;
+    --secondary-foreground: 0.96 0.005 265;
+    --muted: 0.16 0.01 265;
+    --muted-foreground: 0.55 0.01 265;
+    --accent: 0.55 0.18 288;
+    --accent-foreground: 0.98 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.98 0 0;
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 10%;
+    --ring: 0.62 0.22 288;
+    --chart-1: 0.62 0.22 288;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.769 0.188 70.08;
+    --chart-4: 0.627 0.265 303.9;
+    --chart-5: 0.645 0.246 16.439;
+    --sidebar: 0.08 0.005 265;
+    --sidebar-foreground: 0.96 0.005 265;
+    --sidebar-primary: 0.62 0.22 288;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.16 0.01 265;
+    --sidebar-accent-foreground: 0.96 0.005 265;
+    --sidebar-border: 1 0 0 / 8%;
+    --sidebar-ring: 0.62 0.22 288;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-color: #09090f;
+    font-family: "Figtree", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* ─── Cinematic Animations ─────────────────────────────── */
+
+@keyframes cinematic-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-image-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-cinematic {
+  animation: cinematic-fade-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-hero-zoom {
+  animation: hero-image-zoom 8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.7s ease both;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Legacy element animations from previous implementation */
+.animate-element {
+  animation: fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-slide-right {
+  animation: cinematic-fade-in 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-testimonial {
+  animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Animation delays */
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+.animate-delay-300 {
+  animation-delay: 0.3s;
+}
+.animate-delay-400 {
+  animation-delay: 0.4s;
+}
+.animate-delay-500 {
+  animation-delay: 0.5s;
+}
+.animate-delay-600 {
+  animation-delay: 0.6s;
+}
+.animate-delay-700 {
+  animation-delay: 0.7s;
+}
+.animate-delay-800 {
+  animation-delay: 0.8s;
+}
+.animate-delay-900 {
+  animation-delay: 0.9s;
+}
+.animate-delay-1000 {
+  animation-delay: 1.0s;
+}
+.animate-delay-1200 {
+  animation-delay: 1.2s;
+}
+.animate-delay-1400 {
+  animation-delay: 1.4s;
+}
+
+/* ─── Custom Checkbox ──────────────────────────────────── */
+
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.custom-checkbox:checked {
+  background: oklch(0.62 0.22 288);
+  border-color: oklch(0.62 0.22 288);
+}
+
+.custom-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+/* ─── Glassmorphism Utilities ──────────────────────────── */
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ─── Cinematic vignette (reusable) ───────────────────── */
+
+.vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 35%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+}
